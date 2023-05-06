@@ -1,0 +1,41 @@
+// $--colorGlobal: #41b294;
+$--colorGlobal: #41b294;
+$--colorSecondary1: #f6ba35;
+
+.container {
+    width: 1240px;
+    max-width: 100%;
+    padding: 10px 20px;
+    margin: 0 auto;
+    .headerbody {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .left,
+        .right {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            width: 210px;
+        }
+    }
+}
+@media all and ( max-width: 640px) {
+    .container {
+        .headerbody {
+            .logo {
+                width: 180px;
+            }
+        }
+    }
+}
+@media all and ( max-width: 320px) {
+    .container {
+        .headerbody {
+            .logo {
+                width: 130px;
+            }
+        }
+    }
+}

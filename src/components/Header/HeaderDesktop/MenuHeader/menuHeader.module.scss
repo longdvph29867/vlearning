@@ -1,0 +1,56 @@
+$--colorGlobal: #41b294;
+
+.menu {
+    // background: #000;
+    > ul {
+        list-style: none;
+        display: flex;
+        li {
+            padding: 10px;
+            font-weight: 600;
+            position: relative;
+            cursor: pointer;
+            transition: all .3s;
+            &:hover {
+                color: $--colorGlobal;
+            }
+            > a {
+                transition: all .3s;
+                &:hover {
+                    color: $--colorGlobal;
+                }
+            }
+            svg {
+                margin-bottom: -2px;
+            }
+            .menuChild {
+                background-color: rgba(1,135,126,.5);
+                position: absolute;
+                list-style: none;
+                width: 210px;
+                font-size: 15px;
+                max-height: 0;
+                overflow: hidden;
+                top: 100%;
+                left: 0;
+                transition: all .3s;
+                color: initial;
+                cursor: default;
+                li {
+                    a {
+                        &:hover {
+                            color: #fff;
+                        }
+
+                    }
+                }
+            }
+        }
+        .menuChildEven,
+        .menuChildList{
+            &:hover .menuChild {
+                max-height: 400px;
+            }
+        }
+    }
+}

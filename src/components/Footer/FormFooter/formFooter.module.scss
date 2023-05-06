@@ -1,0 +1,24 @@
+$--colorGlobal: #41b294;
+$--colorSecondary1: #f6ba35;
+$--colorText: #252525;
+.formSignIn {
+    .formItem {
+        margin: 0;
+        width: 100%;
+        .typeInput {
+            width: 100%;
+            background: #fff;
+            padding: 5px 10px;
+            margin: 5px 0;
+            font-size: 15px;
+            border: 2px solid $--colorGlobal ;
+            &:focus {
+                border-radius: 6px;
+                border-color: $--colorGlobal;
+            }
+        }
+    }
+    button {
+        margin-top: 6px;
+    }
+}

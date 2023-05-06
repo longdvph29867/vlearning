@@ -1,0 +1,4 @@
+export const SET_USER_INFO = 'SET_USER_INFO';
+export const ON_FORM_UPDATE = 'ON_FORM_UPDATE'
+export const OFF_FORM_UPDATE = 'OFF_FORM_UPDATE'
+export const SET_INFO_ACCOUNT = 'SET_INFO_ACCOUNT'

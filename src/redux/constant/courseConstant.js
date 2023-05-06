@@ -1,0 +1,1 @@
+export const SET_LIST_COURSE = 'SET_LIST_COURSE';

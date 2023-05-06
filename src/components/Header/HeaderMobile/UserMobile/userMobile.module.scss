@@ -1,0 +1,66 @@
+$--colorsecondary1: #f6ba35;
+
+.headerAvatar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .menuMobile {
+        position: absolute;
+        right: 0;
+        top: 150%;
+        transition: all .3s;
+        display: none;
+        transform-origin: 95% 0%;
+        animation: menuMobile .3s;
+    }
+    .iconShowMenu {
+        position: relative;
+        font-size: 25px;
+        color: $--colorsecondary1;
+        margin-left: 10px;
+        cursor: pointer;
+        svg {
+            cursor: pointer;
+        }
+        > input {
+            display: none;
+        }
+        > input:checked ~ .menuMobile {
+            display: block;
+        }
+        .menuMobile {
+            font-size: initial;
+            color: initial;
+        }
+        // &:hover .menuMobile{
+        //     display: block;
+        // }
+        // &::after {
+        //     position: absolute;
+        //     content: "";
+        //     background-color: transparent;
+        //     width: 40px;
+        //     height: 20px;
+        //     right: 0;
+        //     top: 100%;
+        // }
+    }
+    
+}
+@keyframes menuMobile {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,26 @@
+header {
+    z-index: 100;
+    position: relative;
+    background-color: #fff;
+    transition: all .3s;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    .mobile {
+        display: none;
+    }
+}
+header.headerFixed {
+    box-shadow: 0 2px 24px 0 rgba(0,0,0,.15);
+}
+@media all and ( max-width: 1023px) {
+    header {
+        .mobile {
+            display: block;
+        }
+        .desktop {
+            display: none;
+        }
+    }
+    
+}

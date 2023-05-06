@@ -1,0 +1,56 @@
+$--colorGlobal: #41b294;
+.container {
+    width: 1240px;
+    max-width: 90%;
+    padding: 10px 20px;
+    margin: 0 auto;
+    .headerbody {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .left,
+        .right {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            width: 210px;
+        }
+        .search {
+            margin-left: 12px;
+            > span {
+                position: relative;
+                input {
+                    border-radius: 6px;
+                    padding-right: 30px;
+                    background: #eee;
+                    font-size: 18px;
+                    border: 2px solid transparent;
+                    &:hover {
+                        border-color: $--colorGlobal;
+                    }
+                    &:focus {
+                        border-color: $--colorGlobal;
+                    }
+                }
+                > span {
+                    inset-inline-start: auto !important;
+                    background-color: transparent;
+                    position: absolute;
+                    right: 2px;
+                    width: auto;
+                    top: 5px;
+                    z-index: 1;
+                }
+                button {
+                    background-color: transparent;
+                    border: none;
+                    font-size: 18px;
+                    &:hover {
+                        color: $--colorGlobal !important;
+                    }
+                }
+            }
+        }
+    }
+}

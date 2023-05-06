@@ -1,0 +1,155 @@
+$--colorGlobal: #41b294;
+$--colorSecondary1: #f6ba35;
+$--colorText: #252525;
+
+.about {
+    .sliderAbout {
+        background-image: url(../../images/sliderAbout.png);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        .sliderContent {
+            padding: 200px 30px;
+            text-align: center;
+            h3 {
+                color: $--colorGlobal;
+                text-transform: uppercase;
+                font-size: 20px;
+            }
+            h1 {
+                font-size: 40px;
+                color: $--colorSecondary1;
+                padding: 5px 0;
+            }
+            p {
+                font-size: 18px;
+                color: #fff;
+            }
+        }
+    }
+    .itemAbout {
+        padding: 30px 0;
+        .content {
+            display: flex;
+            align-items: center;
+            margin: 0 -15px;
+            .left {
+                width: 50%;
+                padding: 0 15px;
+                h3 {
+                    font-size: 20px;
+                    color: $--colorGlobal;
+                    text-transform: uppercase;
+                }
+                h2 {
+                    font-size: 40px;
+                    padding: 8px 0;
+                }
+                p {
+                    line-height: 1.8;
+                    color: #8c8c8c;
+                    &::first-letter {
+                        color: #cd5c5b;
+                        font-size: 60px;
+                        float: left;
+                        line-height: .9;
+                        padding-right: 6px;
+                        font-weight: bold;
+                    }
+                }
+            }
+            .right {
+                width: 50%;
+                padding: 0 15px;
+                background-position: 50%;
+                background-size: contain;
+                background-repeat: no-repeat;
+                img {
+                    object-fit: contain;
+                    height: 382px;
+                }
+            }
+        }
+        &:nth-child(2) {
+            .content {
+                .right {
+                    background-image: url(../../images/bgitemAbout1.png);
+                }
+            }
+        }
+        &:nth-child(3) {
+            .content {
+                flex-direction: row-reverse;
+                .right {
+                    background-image: url(../../images/bgitemAbout2.png);
+                }
+            }
+        }
+        &:nth-child(4) {
+            .content {
+                .right {
+                    background-image: url(../../images/bgitemAbout1.png);
+                }
+            }
+        }
+        &:nth-child(5) {
+            .content {
+                flex-direction: row-reverse;
+                .right {
+                    background-image: url(../../images/bgitemAbout2.png);
+                }
+            }
+        }
+    }
+}
+
+@media all and ( max-width: 1023px) {
+    .about {
+        .sliderAbout {
+            .sliderContent {
+                h3 {
+                    font-size: 18px;
+                }
+                h1 {
+                    font-size: 35px;
+                }
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+        .itemAbout {
+            .content {
+                flex-direction: column;
+                .left {
+                    width: 100%;
+                    h3 {
+                        font-size: 16px;
+                    }
+                    h2 {
+                        font-size: 30px;
+                    }
+                    p {
+                        font-size: 14px;
+                        &::first-letter {
+                            font-size: 50px;
+                        }
+                    }
+                }
+                .right {
+                    width: 100%;
+                }
+            }
+            &:nth-child(3) {
+                .content {
+                    flex-direction: column;
+                }
+            }
+            &:nth-child(5) {
+                .content {
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}
