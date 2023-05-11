@@ -47,10 +47,9 @@ export default function MenuMobile({isLogin}) {
             </ul>
         </li>
         <li>
-          <NavLink to={'/listcourse'}>
+          <NavLink onClick={() => {console.log(123)}} to={'/listcourse'}>
             <label htmlFor="showMenu">
-
-            <span>KHÓA HỌC</span>
+              <span>KHÓA HỌC</span>
             </label>
           </NavLink>
         </li>

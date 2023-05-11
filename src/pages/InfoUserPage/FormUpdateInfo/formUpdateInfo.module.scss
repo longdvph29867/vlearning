@@ -1,10 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-@media all and ( max-width: 1023px) {
-    
-}
-
+@use '/src/style/mixin.scss' as var;
 
 .formUpdate {
     position: fixed;
@@ -69,16 +63,20 @@ $--colorText: #252525;
                     padding: 8px 12px;
                     margin: 5px 0;
                     font-size: 16px;
-                    border: 1px solid $--colorGlobal ;
+                    border: 1px solid var.$colorGlobal;
+                    @include var.breakpoint(md) {
+                        padding: 6px 8px;
+                        font-size: 14px;
+                    }
                     input {
                         background: #eee;
                     }
                     &:focus {
                         border-radius: 6px;
-                        border: 1px solid $--colorGlobal !important;
+                        border: 1px solid var.$colorGlobal !important;
                     }
                     &:hover {
-                        border: 1px solid $--colorGlobal !important;
+                        border: 1px solid var.$colorGlobal !important;
                     }
                 }
                 .formBtn {
@@ -92,6 +90,9 @@ $--colorText: #252525;
                         font-weight: 700;
                         letter-spacing: 1px;
                         text-transform: uppercase;
+                        @include var.breakpoint(md) {
+                            padding: 6px 24px;
+                        }
                         cursor: pointer;
                         margin-top: 10px;
                         height: auto;
@@ -127,25 +128,3 @@ $--colorText: #252525;
         opacity: 1;
     }
 }
-
-
-@media all and ( max-width: 640px) {
-    .formUpdate {
-        .formContainer {
-            .formContent {
-                .formBody {
-                    .typeInput {
-                        padding: 6px 8px;
-                        font-size: 14px;
-                    }
-                    .formBtn {
-                        .btnUpdate {
-                            padding: 6px 24px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-

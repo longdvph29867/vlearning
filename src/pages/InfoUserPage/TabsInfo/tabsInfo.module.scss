@@ -1,12 +1,7 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-@media all and ( max-width: 1023px) {
-    
-}
+@use '/src/style/mixin.scss' as var;
 
 .tabsInfo {
-    color: $--colorGlobal;
+    color: var.$colorGlobal;
     .titleInfo {
         font-weight: bold;
     }

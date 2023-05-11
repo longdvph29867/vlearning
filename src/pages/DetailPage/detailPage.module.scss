@@ -1,46 +1,31 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-@media all and ( max-width: 1023px) {
-    
-}
+@use '/src/style/mixin.scss' as var;
+
 .detailCourse {
     .content {
         display: flex;
         padding: 50px 0;
         margin: 0 -15px;
+        @include var.breakpoint(md) {
+            flex-direction: column-reverse;
+        }
         .left {
             width: 70%;
             padding: 0 15px;
+            @include var.breakpoint(lg) {
+                width: 60%;
+            }
+            @include var.breakpoint(md) {
+                width: 100%;
+                margin-top: 30px;
+            }
         }
         .right {
             width: 30%;
             padding: 0 15px;
-        }
-    }
-}
-
-@media all and ( max-width: 1023px) {
-    .detailCourse {
-        .content {
-            .left {
-                width: 60%;
-            }
-            .right {
+            @include var.breakpoint(lg) {
                 width: 40%;
             }
-        }
-    }
-}
-@media all and ( max-width: 768px) {
-    .detailCourse {
-        .content {
-            flex-direction: column-reverse;
-            .left {
-                width: 100%;
-                margin-top: 30px;
-            }
-            .right {
+            @include var.breakpoint(md) {
                 width: 100%;
             }
         }

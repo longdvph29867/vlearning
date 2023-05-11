@@ -1,7 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-
+@use '/src/style/mixin.scss' as var;
 
 .btnStyle {
     padding: 10px 20px;
@@ -9,7 +6,7 @@ $--colorText: #252525;
     font-size: 15px;
     text-transform: uppercase;
     transition: all .5s;
-    background-color: $--colorSecondary1;
+    background-color: var.$colorSecondary1;
     cursor: pointer;
     border: none;
     &:hover {

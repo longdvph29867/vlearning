@@ -1,10 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-@media all and ( max-width: 1023px) {
-    
-}
-
+@use '/src/style/mixin.scss' as var;
 
 .infoUserPage {
     .infoContent {
@@ -12,6 +6,9 @@ $--colorText: #252525;
         display: flex;
         .infoLeft {
             width: 25%;
+            @include var.breakpoint(lg) {
+                display: none;
+            }
             .contentLeft {
                 display: flex;
                 flex-direction: column;
@@ -36,7 +33,7 @@ $--colorText: #252525;
                     border-radius: 50px;
                     border: none;
                     color: #fff;
-                    background-color: $--colorGlobal;
+                    background-color: var.$colorGlobal;
                     transition: all .5s;
                     cursor: pointer;
                     &:hover {
@@ -47,16 +44,7 @@ $--colorText: #252525;
         }
         .infoRingh {
             width: 75%;
-        }
-    }
-}
-@media all and ( max-width: 1023px) {
-    .infoUserPage {
-        .infoContent {
-            .infoLeft {
-                display: none;
-            }
-            .infoRingh {
+            @include var.breakpoint(lg) {
                 width: 100%;
             }
         }

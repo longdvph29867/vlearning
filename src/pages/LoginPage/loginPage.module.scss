@@ -1,6 +1,5 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
+@use '/src/style/mixin.scss' as var;
+
 .btnStyle {
     font-size: 14px;
     color: #fff;
@@ -23,16 +22,19 @@ $--colorText: #252525;
     padding: 10px 15px;
     margin: 5px 0;
     font-size: 18px;
-    border: 1px solid $--colorGlobal ;
+    border: 1px solid var.$colorGlobal;
+    @include var.breakpoint(sm) {
+        padding: 6px 15px !important;
+    }
     input {
         background: #eee;
     }
     &:focus {
         border-radius: 6px;
-        border: 1px solid $--colorGlobal !important;
+        border: 1px solid var.$colorGlobal !important;
     }
     &:hover {
-        border: 1px solid $--colorGlobal !important;
+        border: 1px solid var.$colorGlobal !important;
     }
 }
 .changeForm {
@@ -42,6 +44,9 @@ $--colorText: #252525;
     color: #36867b;
     display: none;
     cursor: pointer;
+    @include var.breakpoint(md) {
+        display: block;
+    }
 }
 
 .loginPage {
@@ -62,6 +67,12 @@ $--colorText: #252525;
         overflow: hidden;
         box-shadow: 0 14px 28px rgba(0,0,0,.2), 0 10px 10px rgba(0,0,0,.2);
         position: relative;
+        @include var.breakpoint(lg) {
+            width: 90vw;
+        }
+        @include var.breakpoint(sm) {
+            height: 95vh !important;
+        }
         .containerForm {
             position: absolute;
             top: 0;
@@ -70,6 +81,9 @@ $--colorText: #252525;
             width: 50%;
             transition: all .5s ease-in-out;
             left: 0;
+            @include var.breakpoint(md) {
+                width: 100%;
+            }
         }
         .signup {
             z-index: 1;
@@ -84,6 +98,9 @@ $--colorText: #252525;
                 justify-content: center;
                 align-items: center;
                 padding: 0 50px;
+                @include var.breakpoint(lg) {
+                    padding: 0 16px !important;
+                }
                 h2 {
                     font-size: 32px;
                     text-align: center;
@@ -95,6 +112,9 @@ $--colorText: #252525;
                     flex-direction: column;
                     align-items: center;
                     width: 100%;
+                    @include var.breakpoint(sm) {
+                        align-items: flex-start !important
+                    }
                     .typeSelect > div{
                         @extend .typeInput;
                         height: auto;
@@ -126,6 +146,9 @@ $--colorText: #252525;
                 align-items: center;
                 padding: 0 50px;
                 text-align: center;
+                @include var.breakpoint(lg) {
+                    padding: 0 16px !important;
+                }
                 h1 {
                     font-size: 40px;
                     color: #36867b;
@@ -171,6 +194,9 @@ $--colorText: #252525;
             left: 50%;
             overflow: hidden;
             transition: all .5s ease-in-out;
+            @include var.breakpoint(md) {
+                display: none;
+            }
             .overlay {
                 position: relative;
                 left: -100%;
@@ -213,9 +239,15 @@ $--colorText: #252525;
             z-index: 5;
             opacity: 1;
             left: 50%;
+            @include var.breakpoint(md) {
+                left: 0 !important;
+            }
         }
         .signin {
             left: 50%;
+            @include var.breakpoint(md) {
+                left: 0 !important;
+            }
         }
         .overlayContainer {
             transform: translateX(-100%);
@@ -228,59 +260,6 @@ $--colorText: #252525;
                     transform: translateX(0);
                 }
             }
-        }
-    }
-
-}
-@media all and ( max-width: 1023px) {
-    .loginPage {
-        .container {
-            width: 90vw;
-            .containerSignUp {
-                padding: 0 16px !important;
-            }
-            .containerSignIn {
-                padding: 0 16px !important;
-            }
-        }
-    }
-}
-@media all and ( max-width: 767px) {
-    .changeForm {
-        display: block;
-    }
-    .loginPage {
-        .container {
-            .containerForm {
-                width: 100%;
-            }
-            .overlayContainer {
-                display: none;
-            }
-        }
-    }
-    .container.activeSignUp {
-        .signup {
-            left: 0 !important;
-        }
-        .signin {
-            left: 0 !important;
-        }
-    }
-}
-@media all and ( max-width: 639px) {
-    .typeInput {
-        padding: 6px 15px !important;
-    }
-    .container {
-        height: 90vh !important;
-    }
-}
-@media all and ( max-height: 639px) {
-    .container {
-        height: 95vh !important;
-        .formSignUp {
-            align-items: flex-start !important;
         }
     }
 }

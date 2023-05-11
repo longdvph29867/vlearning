@@ -2,13 +2,14 @@ import { courseService } from "../../service/courseService";
 import { localUserService } from "../../service/localService";
 import { userService } from "../../service/userService"
 import { SET_LIST_COURSE } from "../constant/courseConstant";
+import { SET_LOADING_OFF, SET_LOADING_ON } from "../constant/spinnerConstant";
 import { SET_INFO_ACCOUNT, SET_USER_INFO } from "../constant/userConstant";
 
 export const setSignInAction = (data, onSuccess, onError) => {
-    return (dispath) => {
+    return (dispatch) => {
         userService.signIn(data)
         .then((res) => {
-            dispath({
+            dispatch({
                 type: SET_USER_INFO,
                 payload: res.data,
             })
@@ -21,7 +22,7 @@ export const setSignInAction = (data, onSuccess, onError) => {
     }
 }
 export const setSignUpAction = (data, onSuccess, onError) => {
-    return (dispath) => {
+    return (dispatch) => {
         userService.signUp(data)
         .then((res) => {
             console.log(res);
@@ -34,30 +35,38 @@ export const setSignUpAction = (data, onSuccess, onError) => {
     }
 }
 export const setListCourse = () => {
-    return (dispath) => {
+    return (dispatch) => {
+        dispatch({type: SET_LOADING_ON})
         courseService.getCourseList()
         .then((res) => {
-            dispath({
+            dispatch({type: SET_LOADING_OFF})
+            dispatch({
                 type: SET_LIST_COURSE,
                 payload: res.data
             })
         })
         .catch((err) => {
+            dispatch({type: SET_LOADING_OFF})
             console.log(err);
         });
     }
 }
 export const setInfoAccoutUser = (data) => {
-    return (dispath) => {
+    return (dispatch) => {
+        dispatch({type: SET_LOADING_ON})
         userService.getInfoAccountUser(data)
         .then((res) => {
-            dispath({
+            dispatch({type: SET_LOADING_OFF})
+            dispatch({
                 type: SET_INFO_ACCOUNT,
                 payload: res.data
             })
         })
         .catch((err) => {
+            dispatch({type: SET_LOADING_OFF})
             console.log(err);
         });
     }
 }
+
+

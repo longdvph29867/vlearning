@@ -1,6 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
+@use '/src/style/mixin.scss' as var;
 
 .about {
     .sliderAbout {
@@ -12,18 +10,27 @@ $--colorText: #252525;
             padding: 200px 30px;
             text-align: center;
             h3 {
-                color: $--colorGlobal;
+                color: var.$colorGlobal;
                 text-transform: uppercase;
                 font-size: 20px;
+                @include var.breakpoint(lg) {
+                    font-size: 18px;
+                }
             }
             h1 {
                 font-size: 40px;
-                color: $--colorSecondary1;
+                color: var.$colorSecondary1;
                 padding: 5px 0;
+                @include var.breakpoint(lg) {
+                    font-size: 35px;
+                }
             }
             p {
                 font-size: 18px;
                 color: #fff;
+                @include var.breakpoint(lg) {
+                    font-size: 16px;
+                }
             }
         }
     }
@@ -33,21 +40,36 @@ $--colorText: #252525;
             display: flex;
             align-items: center;
             margin: 0 -15px;
+            @include var.breakpoint(lg) {
+                flex-direction: column;
+            }
             .left {
                 width: 50%;
                 padding: 0 15px;
+                @include var.breakpoint(lg) {
+                    width: 100%;
+                }
                 h3 {
                     font-size: 20px;
-                    color: $--colorGlobal;
+                    color: var.$colorGlobal;
                     text-transform: uppercase;
+                    @include var.breakpoint(lg) {
+                        font-size: 16px;
+                    }
                 }
                 h2 {
                     font-size: 40px;
                     padding: 8px 0;
+                    @include var.breakpoint(lg) {
+                        font-size: 30px;
+                    }
                 }
                 p {
                     line-height: 1.8;
                     color: #8c8c8c;
+                    @include var.breakpoint(lg) {
+                        font-size: 14px;
+                    }
                     &::first-letter {
                         color: #cd5c5b;
                         font-size: 60px;
@@ -55,6 +77,9 @@ $--colorText: #252525;
                         line-height: .9;
                         padding-right: 6px;
                         font-weight: bold;
+                        @include var.breakpoint(lg) {
+                            font-size: 50px;
+                        }
                     }
                 }
             }
@@ -64,6 +89,9 @@ $--colorText: #252525;
                 background-position: 50%;
                 background-size: contain;
                 background-repeat: no-repeat;
+                @include var.breakpoint(lg) {
+                    width: 100%;
+                }
                 img {
                     object-fit: contain;
                     height: 382px;
@@ -80,6 +108,9 @@ $--colorText: #252525;
         &:nth-child(3) {
             .content {
                 flex-direction: row-reverse;
+                @include var.breakpoint(lg) {
+                    flex-direction: column;
+                }
                 .right {
                     background-image: url(../../images/bgitemAbout2.png);
                 }
@@ -95,59 +126,11 @@ $--colorText: #252525;
         &:nth-child(5) {
             .content {
                 flex-direction: row-reverse;
+                @include var.breakpoint(lg) {
+                    flex-direction: column;
+                }
                 .right {
                     background-image: url(../../images/bgitemAbout2.png);
-                }
-            }
-        }
-    }
-}
-
-@media all and ( max-width: 1023px) {
-    .about {
-        .sliderAbout {
-            .sliderContent {
-                h3 {
-                    font-size: 18px;
-                }
-                h1 {
-                    font-size: 35px;
-                }
-                p {
-                    font-size: 16px;
-                }
-            }
-        }
-        .itemAbout {
-            .content {
-                flex-direction: column;
-                .left {
-                    width: 100%;
-                    h3 {
-                        font-size: 16px;
-                    }
-                    h2 {
-                        font-size: 30px;
-                    }
-                    p {
-                        font-size: 14px;
-                        &::first-letter {
-                            font-size: 50px;
-                        }
-                    }
-                }
-                .right {
-                    width: 100%;
-                }
-            }
-            &:nth-child(3) {
-                .content {
-                    flex-direction: column;
-                }
-            }
-            &:nth-child(5) {
-                .content {
-                    flex-direction: column;
                 }
             }
         }

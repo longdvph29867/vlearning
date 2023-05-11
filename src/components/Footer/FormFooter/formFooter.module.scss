@@ -1,6 +1,5 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
+@use '/src/style/mixin.scss' as var;
+
 .formSignIn {
     .formItem {
         margin: 0;
@@ -11,10 +10,10 @@ $--colorText: #252525;
             padding: 5px 10px;
             margin: 5px 0;
             font-size: 15px;
-            border: 2px solid $--colorGlobal ;
+            border: 2px solid var.$colorGlobal;
             &:focus {
                 border-radius: 6px;
-                border-color: $--colorGlobal;
+                border-color: var.$colorGlobal;
             }
         }
     }

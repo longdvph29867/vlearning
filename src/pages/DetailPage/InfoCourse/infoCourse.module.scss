@@ -1,14 +1,15 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-$--colorTextCard: #8c8c8c;
-@media all and ( max-width: 1023px) {
-    
-}
+@use '/src/style/mixin.scss' as var;
+
 
 .infoCourse {
+    @include var.breakpoint(sm) {
+        font-size: 14px;
+    }
     .title {
         font-size: 26px;
+        @include var.breakpoint(sm) {
+            font-size: 22px;
+        }
     }
     .courseInfo {
         padding: 30px 0;
@@ -16,6 +17,9 @@ $--colorTextCard: #8c8c8c;
         grid-template-columns: repeat(3,1fr);
         align-items: center;
         gap: 40px;
+        @include var.breakpoint(sm) {
+            grid-template-columns: repeat(1,1fr);
+        }
         > div {
             display: flex;
             align-items: center;
@@ -27,7 +31,7 @@ $--colorTextCard: #8c8c8c;
             }
             svg {
                 font-size: 40px;
-                color: $--colorGlobal;
+                color: var.$colorGlobal;
             }
             > div {
                 margin-left: 6px;
@@ -44,7 +48,7 @@ $--colorTextCard: #8c8c8c;
                 align-items: flex-start;
                 svg {
                     font-size: 20px;
-                    color: $--colorSecondary1;
+                    color: var.$colorSecondary1;
                 }
                 .textStar {
                     font-weight: bold;
@@ -60,7 +64,10 @@ $--colorTextCard: #8c8c8c;
         line-height: 1.4;
         padding-bottom: 20px;
         font-size: 18px;
-        color: $--colorTextCard;
+        color: #8c8c8c;
+        @include var.breakpoint(sm) {
+            font-size: 14px;
+        }
     }
     .boxCourseLearn {
         padding: 20px 0;
@@ -79,7 +86,7 @@ $--colorTextCard: #8c8c8c;
                     line-height: 1.4;
                     svg {
                         margin-right: 5px;
-                        color: $--colorSecondary1;
+                        color: var.$colorSecondary1;
                     }
                 }
             }
@@ -101,6 +108,9 @@ $--colorTextCard: #8c8c8c;
                     text-transform: uppercase;
                     margin-right: 20px;
                     font-size: 22px;
+                    @include var.breakpoint(sm) {
+                        font-size: 18px;
+                    }
                 }
             }
             p {
@@ -114,47 +124,19 @@ $--colorTextCard: #8c8c8c;
                     align-items: center;
                     justify-content: space-between;
                     font-size: 16px;
+                    @include var.breakpoint(sm) {
+                        font-size: 14px;
+                    }
                     > div {
                         display: flex;
                         align-items: center;
                         svg {
                             margin-right: 8px;
-                            color: $--colorGlobal;
+                            color: var.$colorGlobal;
                         }
                         span {
-                            color: $--colorTextCard;
+                            color: #8c8c8c;
                         }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media all and ( max-width: 640px) {
-    .infoCourse {
-        font-size: 14px;
-        .title {
-            font-size: 22px;
-        }
-        .courseInfo {
-            grid-template-columns: repeat(1,1fr);
-            > div {
-            }
-        }
-        .description {
-            font-size: 14px;
-        }
-        .courseContent {
-            .courseItem {
-                .sectionItem {
-                    span {
-                        font-size: 18px;
-                    }
-                }
-                .lessonContainer {
-                    .lessonContent {
-                        font-size: 14px;
                     }
                 }
             }

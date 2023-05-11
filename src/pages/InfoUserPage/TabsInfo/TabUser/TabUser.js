@@ -27,7 +27,7 @@ export default function TabUser() {
             <div className={styles.infoTopRight}>
                 <p>Tài khoản:  <span>{infoAccount?.taiKhoan}</span></p>
                 <p>Nhóm: <span>{infoAccount?.maNhom}</span></p>
-                <p>Đối tượng: <span>Học viên</span></p>
+                <p>Đối tượng: <span>{infoAccount?.maLoaiNguoiDung === 'GV' ? 'Giáo viên' : 'Học viên'}</span></p>
                 <ButtonV1 onClick={setFormUpdateOn}>Cập nhật</ButtonV1>
             </div>
         </div>

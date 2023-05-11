@@ -1,4 +1,4 @@
-$--colorGlobal: #41b294;
+@use '/src/style/mixin.scss' as var;
 
 .menu {
     // background: #000;
@@ -12,12 +12,12 @@ $--colorGlobal: #41b294;
             cursor: pointer;
             transition: all .3s;
             &:hover {
-                color: $--colorGlobal;
+                color: var.$colorGlobal;
             }
             > a {
                 transition: all .3s;
                 &:hover {
-                    color: $--colorGlobal;
+                    color: var.$colorGlobal;
                 }
             }
             svg {

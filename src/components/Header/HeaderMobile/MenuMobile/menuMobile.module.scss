@@ -1,4 +1,4 @@
-$--colorGlobal: rgba(1,135,126,.8);
+@use '/src/style/mixin.scss' as var;
 
 .menu {
     > ul {
@@ -7,6 +7,16 @@ $--colorGlobal: rgba(1,135,126,.8);
         flex-direction: column;
         width: 200px;
         background-color: rgba(1,135,126,.9);
+        @include var.breakpoint(sm) {
+            width: 170px;
+            font-size: 14px;
+            transform: translateX(15px);
+        }
+        @include var.breakpoint(xs) {
+            width: 140px;
+            font-size: 14px;
+            transform: translateX(15px);
+        }
         li {
             padding: 10px;
             font-weight: 600;
@@ -39,6 +49,12 @@ $--colorGlobal: rgba(1,135,126,.8);
                 transition: all .5s;
                 color: initial;
                 cursor: default;
+                @include var.breakpoint(sm) {
+                    width: 180px;
+                }
+                @include var.breakpoint(xs) {
+                    width: 150px;
+                }
                 li {
                     &:hover {
                         color: white;
@@ -64,10 +80,10 @@ $--colorGlobal: rgba(1,135,126,.8);
                     font-size: 18px;
                     border: 2px solid transparent;
                     &:hover {
-                        border-color: $--colorGlobal;
+                        border-color: var.$colorGlobal;
                     }
                     &:focus {
-                        border-color: $--colorGlobal;
+                        border-color: var.$colorGlobal;
                     }
                 }
                 > span {
@@ -84,37 +100,8 @@ $--colorGlobal: rgba(1,135,126,.8);
                     border: none;
                     font-size: 18px;
                     &:hover {
-                        color: $--colorGlobal !important;
+                        color: var.$colorGlobal !important;
                     }
-                }
-            }
-        }
-    }
-}
-
-@media all and ( max-width: 640px) {
-    .menu {
-        >ul {
-            width: 170px;
-            font-size: 14px;
-            transform: translateX(15px);
-            li {
-                .menuChild {
-                    width: 180px ;
-                }
-            }
-        }
-    }
-}
-@media all and ( max-width: 350px) {
-    .menu {
-        >ul {
-            width: 140px;
-            font-size: 14px;
-            transform: translateX(15px);
-            li {
-                .menuChild {
-                    width: 150px ;
                 }
             }
         }

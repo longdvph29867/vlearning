@@ -1,17 +1,24 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
+@use '/src/style/mixin.scss' as var;
 
 .infoUser {
     font-size: 16px;
-    color: $--colorText;
+    color: var.$colorText;
     .infoTop {
         display: flex;
+        @include var.breakpoint(sm) {
+            flex-direction: column;
+        }
         .infoTopLeft {
             width: 65%;
+            @include var.breakpoint(sm) {
+                width: 100%;
+            }
         }
         .infoTopRight {
             width: 35%;
+            @include var.breakpoint(sm) {
+                width: 100%;
+            }
         }
         p {
             font-weight: bold;
@@ -29,9 +36,16 @@ $--colorText: #252525;
         .infoBotContent {
             display: flex;
             margin: 0 -15px;
+            @include var.breakpoint(md) {
+                flex-direction: column;
+                align-items: center;
+            }
             .skillAll {
                 padding: 0 15px;
                 width: 65%;
+                @include var.breakpoint(md) {
+                    width: 100%;
+                }
                 .mySkill {
                     display: flex;
                     align-items: center;
@@ -70,6 +84,10 @@ $--colorText: #252525;
                 display: grid;
                 grid-template-columns: repeat(2,1fr);
                 gap: 20px;
+                @include var.breakpoint(md) {
+                    width: 100%;
+                    max-width: 500px;
+                }
                 .timeStudyItem {
                     display: flex;
                     justify-content: center;
@@ -77,7 +95,7 @@ $--colorText: #252525;
                     color: #fff;
                     padding: 6px;
                     border-radius: 10px;
-                    background-color: $--colorGlobal;
+                    background-color: var.$colorGlobal;
                     svg {
                         font-size: 20px;
                         margin-right: 6px;
@@ -89,34 +107,6 @@ $--colorText: #252525;
                         font-size: 14px;
                     }
                 }
-            }
-        }
-    }
-}
-@media all and ( max-width: 768px) {
-    .infoUser {
-        .infoBot {
-            .infoBotContent {
-                flex-direction: column;
-                align-items: center;
-                .skillAll {
-                    width: 100%;
-                }
-                .timeStudy {
-                    width: 100%;
-                    max-width: 500px;
-                }
-            }
-        }
-    }
-}
-@media all and ( max-width: 640px) {
-    .infoUser {
-        .infoTop {
-            flex-direction: column;
-            .infoTopLeft,
-            .infoTopRight {
-                width: 100%;
             }
         }
     }

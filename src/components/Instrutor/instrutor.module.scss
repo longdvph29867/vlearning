@@ -1,7 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-
+@use '/src/style/mixin.scss' as var;
 
 .instrutor {
     padding:  50px 0;
@@ -15,7 +12,7 @@ $--colorText: #252525;
             padding: 15px 0;
         }
         button::before {
-            color: $--colorGlobal;
+            color: var.$colorGlobal;
             font-size: 30px;
 
         }

@@ -1,6 +1,4 @@
-// $--colorGlobal: #41b294;
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
+@use '/src/style/mixin.scss' as var;
 
 .container {
     width: 1240px;
@@ -18,24 +16,12 @@ $--colorSecondary1: #f6ba35;
         }
         .logo {
             width: 210px;
-        }
-    }
-}
-@media all and ( max-width: 640px) {
-    .container {
-        .headerbody {
-            .logo {
+            @include var.breakpoint(sm) {
                 width: 180px;
-            }
-        }
-    }
-}
-@media all and ( max-width: 320px) {
-    .container {
-        .headerbody {
-            .logo {
+            };
+            @include var.breakpoint(xs) {
                 width: 130px;
-            }
+            };
         }
     }
 }

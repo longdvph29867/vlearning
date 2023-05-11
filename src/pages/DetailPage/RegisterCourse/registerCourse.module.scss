@@ -1,10 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-$--colorTextCard: #8c8c8c;
-@media all and ( max-width: 1023px) {
-    
-}
+@use '/src/style/mixin.scss' as var;
 
 .registerCourse {
     box-shadow: 1px 1px 10px 4px #dadada;
@@ -20,7 +14,7 @@ $--colorTextCard: #8c8c8c;
         align-items: center;
         justify-content: flex-end;
         svg {
-            color: $--colorSecondary1;
+            color: var.$colorSecondary1;
         }
     }
     .btnRegister {
@@ -31,6 +25,9 @@ $--colorTextCard: #8c8c8c;
     }
     .content {
         padding: 0 20px;
+        @include var.breakpoint(lg) {
+            font-size: 14px;
+        }
         ul {
             list-style: none;
             li {
@@ -43,20 +40,13 @@ $--colorTextCard: #8c8c8c;
                     font-weight: bold;
                 }
                 svg {
-                    color: $--colorSecondary1;
+                    color: var.$colorSecondary1;
                     font-size: 20px;
                 }
                 &:nth-of-type(1) {
                     border-top: none;
                 }
             }
-        }
-    }
-}
-@media all and ( max-width: 640px) {
-    .registerCourse {
-        .content {
-            font-size: 14px;
         }
     }
 }

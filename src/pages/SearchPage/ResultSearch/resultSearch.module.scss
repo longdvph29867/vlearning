@@ -1,9 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-@media all and ( max-width: 1023px) {
-    
-}
+@use '/src/style/mixin.scss' as var;
 
 .resultSearch {
     h4 {
@@ -14,6 +9,9 @@ $--colorText: #252525;
         align-items: center;
         margin: 30px -10px 0;
         font-size: 16px;
+        @include var.breakpoint(md) {
+            flex-direction: column;
+        }
         .imageCourse {
             width: 25%;
             padding: 0 10px;
@@ -62,7 +60,7 @@ $--colorText: #252525;
                 display: flex;
                 align-items: center;
                 font-size: 18px;
-                color: $--colorSecondary1;
+                color: var.$colorSecondary1;
                 margin: 5px 0;
             }
             .infoMaker {
@@ -83,23 +81,17 @@ $--colorText: #252525;
             padding: 0 10px;
             display: flex;
             justify-content: flex-end;
+            @include var.breakpoint(md) {
+                justify-content: flex-start;
+            }
         }
-    }
-}
-
-@media all and ( max-width: 768px) {
-    .resultSearch {
-        .itemResult {
-            flex-direction: column;
-            .imageCourse,
-            .courseContent,
-            .btnInfo {
+        .imageCourse,
+        .courseContent,
+        .btnInfo {
+            @include var.breakpoint(md) {
                 width: 100%;
                 margin-bottom: 12px;
                 max-width: 400px;
-            }
-            .btnInfo {
-            justify-content: flex-start;
             }
         }
     }

@@ -1,10 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-@media all and ( max-width: 1023px) {
-    
-}
-
+@use '/src/style/mixin.scss' as var;
 
 .instrutorItem {
     padding: 0 15px;
@@ -27,7 +21,7 @@ $--colorText: #252525;
             padding: 8px 0;
         }
         .reviewMentor {
-            color: $--colorSecondary1;
+            color: var.$colorSecondary1;
         }
         .reviews {
             font-size: 13px;

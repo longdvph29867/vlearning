@@ -1,6 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-
+@use '/src/style/mixin.scss' as var;
 
 .headerAvatar {
     position: relative;
@@ -22,7 +20,7 @@ $--colorSecondary1: #f6ba35;
         transition: all .5s;
         svg {
             font-size: 25px;
-            color: $--colorSecondary1;
+            color: var.$colorSecondary1;
         }
     }
     .iconShowMenu {

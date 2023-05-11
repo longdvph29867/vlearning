@@ -1,6 +1,5 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
+@use '/src/style/mixin.scss' as var;
+
 img {
     width: 100%;
 }
@@ -9,11 +8,17 @@ img {
         display: grid;
         grid-template-columns: repeat(2,1fr);
         align-items: center;
+        @include var.breakpoint(md) {
+            grid-template-columns: repeat(1,1fr);
+        }
         .sloganBox {
             height: 100%;
             display: flex;
             align-items: center;
             position: relative;
+            @include var.breakpoint(md) {
+                margin-top: 20px;
+            }
             .sloganContainer {
                 img {
                     position: absolute;
@@ -27,16 +32,31 @@ img {
                     font-size: 50px;
                     font-weight: bold;
                     position: relative;
+                    @include var.breakpoint(lg) {
+                        font-size: 36px;
+                    }
+                    @include var.breakpoint(md) {
+                        font-size: 46px;
+                    }
+                    @include var.breakpoint(sm) {
+                        font-size: 30px;
+                    }
                 }
                 h1:nth-of-type(3) {
-                    color: $--colorGlobal;
+                    color: var.$colorGlobal;
                     font-size: 65px;
                     margin-bottom: 24px;
                     display: inline-block;
                     overflow: hidden;
                     animation: aniText 5s steps(10) infinite;
+                    @include var.breakpoint(sm) {
+                        font-size: 40px;
+                    }
                     span {
                         font-size: 50px;
+                        @include var.breakpoint(sm) {
+                            font-size: 30px;
+                        }
                     }
                 }
             }
@@ -56,23 +76,23 @@ img {
                 height: 0;
                 border-left: 20px solid transparent;
                 border-right: 20px solid transparent;
-                border-bottom: 50px solid $--colorSecondary1;
+                border-bottom: 50px solid var.$colorSecondary1;
             }
             .smallboxLeftTop {
-                @include smallBox($--colorGlobal);
+                @include smallBox(var.$colorGlobal);
                 top: 10%;
                 left: 10%;
                 height: 70px;
                 width: 20%;
             }
             .smallboxRightTop {
-                @include smallBox($--colorSecondary1);
+                @include smallBox(var.$colorSecondary1);
                 top: 5%;
                 right: 0;
                 transform: rotate(45deg);
             }
             .smallboxRightBottom {
-                @include smallBox($--colorSecondary1);
+                @include smallBox(var.$colorSecondary1);
                 bottom: 10%;
                 left: 70%;
                 width: 20%;
@@ -89,45 +109,5 @@ img {
         width: 250px;
     }
 }
-@media all and ( max-width: 1023px) {
-    .banner > div {
-        .sloganBox {
-            .sloganContainer {
-                h1 {
-                    font-size: 36px;
-                }
-            }
-        }
-    }
-}
-@media all and ( max-width: 768px) {
-    .banner > div {
-        grid-template-columns: repeat(1,1fr);
-        .sloganBox {
-            margin-top: 20px;
-            .sloganContainer {
-                h1 {
-                    font-size: 46px;
-                }
-            }
-        }
-    }
-}
-@media all and ( max-width: 640px) {
-    .banner > div {
-        .sloganBox {
-            .sloganContainer {
-                h1 {
-                    font-size: 30px;
-                }
-                h1:nth-of-type(3) {
-                    font-size: 40px;
-                    span {
-                        font-size: 30px;
-                    }
-                }
-            }
-        }
-    }
-}
+
 

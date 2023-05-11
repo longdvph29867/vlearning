@@ -1,4 +1,4 @@
-$--colorsecondary1: #f6ba35;
+@use '/src/style/mixin.scss' as var;
 
 .headerAvatar {
     position: relative;
@@ -23,7 +23,7 @@ $--colorsecondary1: #f6ba35;
     .iconShowMenu {
         position: relative;
         font-size: 25px;
-        color: $--colorsecondary1;
+        color: var.$colorSecondary1;
         margin-left: 10px;
         cursor: pointer;
         svg {
@@ -32,25 +32,25 @@ $--colorsecondary1: #f6ba35;
         > input {
             display: none;
         }
-        > input:checked ~ .menuMobile {
-            display: block;
-        }
+        // > input:checked ~ .menuMobile {
+        //     display: block;
+        // }
         .menuMobile {
             font-size: initial;
             color: initial;
         }
-        // &:hover .menuMobile{
-        //     display: block;
-        // }
-        // &::after {
-        //     position: absolute;
-        //     content: "";
-        //     background-color: transparent;
-        //     width: 40px;
-        //     height: 20px;
-        //     right: 0;
-        //     top: 100%;
-        // }
+        &:hover .menuMobile{
+            display: block;
+        }
+        &::after {
+            position: absolute;
+            content: "";
+            background-color: transparent;
+            width: 40px;
+            height: 20px;
+            right: 0;
+            top: 100%;
+        }
     }
     
 }

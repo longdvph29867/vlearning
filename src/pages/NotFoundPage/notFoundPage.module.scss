@@ -1,7 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-
+@use '/src/style/mixin.scss' as var;
 
 .notFoundPage {
     width: 100%;
@@ -16,24 +13,20 @@ $--colorText: #252525;
         font-size: 80px;
         font-family: cursive;
         transform: translateY(100%);
-    }
-    img {
-        width: 50%;
-    }
-    .btnHome {
-        transform: translateY(-200%);
-    }
-}
-@media all and ( max-width: 768px) {
-    .notFoundPage {
-        h1 {
+        @include var.breakpoint(md) {
             font-size: 40px;
             transform: translateY(50%);
         }
-        img {
+    }
+    img {
+        width: 50%;
+        @include var.breakpoint(md) {
             width: 70%;
         }
-        .btnHome {
+    }
+    .btnHome {
+        transform: translateY(-200%);
+        @include var.breakpoint(md) {
             transform: translateY(-100%);
         }
     }

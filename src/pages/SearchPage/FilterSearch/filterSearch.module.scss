@@ -1,9 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-@media all and ( max-width: 1023px) {
-    
-}
+@use '/src/style/mixin.scss' as var;
 
 .filterSearch {
     h2 {
@@ -34,7 +29,7 @@ $--colorText: #252525;
                         height: 0;
                         width: 0;
                         &:checked ~ .checkMark {
-                            background-color: $--colorGlobal;
+                            background-color: var.$colorGlobal;
                         }
                         &:checked ~ .checkMark svg {
                             display: block;
@@ -49,7 +44,7 @@ $--colorText: #252525;
                         height: 25px;
                         width: 25px;
                         background-color: #fff;
-                        border: 2px solid $--colorGlobal;
+                        border: 2px solid var.$colorGlobal;
                         border-radius: 5px;
                         display: flex;
                         align-items: center;
@@ -67,8 +62,13 @@ $--colorText: #252525;
             ul {
                 li {
                     .BoxSearch {
+                        .checkMark {
+                            svg {
+                                color: #fff;
+                            }
+                        }
                         svg {
-                            color: $--colorSecondary1;
+                            color: var.$colorSecondary1;
                         }
                     }
                 }

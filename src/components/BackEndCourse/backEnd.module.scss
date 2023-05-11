@@ -1,12 +1,9 @@
-
-$--colorGlobal: #41b294;
-$--yellow: #f6ba35;
-$--colorText: #252525;
+@use '/src/style/mixin.scss' as var;
 
 .backtendCourse {
     .title {
         font-weight: 600;
-        color: $--colorText;
+        color: var.$colorText;
     }
     .list {
         padding: 24px 0;
@@ -14,25 +11,13 @@ $--colorText: #252525;
         grid-template-columns: repeat(4,1fr);
         gap: 30px;
         justify-items: center;
-    }
-}
-@media all and ( max-width: 1280px) {
-    .backtendCourse {
-        .list {
+        @include var.breakpoint(xl) {
             grid-template-columns: repeat(3,1fr);
         }
-    }
-}
-@media all and ( max-width: 1024px) {
-    .backtendCourse {
-        .list {
+        @include var.breakpoint(lg) {
             grid-template-columns: repeat(2,1fr);
         }
-    }
-}
-@media all and ( max-width: 640px) {
-    .backtendCourse {
-        .list {
+        @include var.breakpoint(md) {
             grid-template-columns: repeat(1,1fr);
         }
     }

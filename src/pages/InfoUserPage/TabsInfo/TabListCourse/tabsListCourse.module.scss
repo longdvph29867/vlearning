@@ -1,10 +1,7 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-
+@use '/src/style/mixin.scss' as var;
 
 .courseUSer {
-    color: $--colorText;
+    color: var.$colorText;
     .courseUSerTitle {
         display: flex;
         align-items: center;
@@ -16,6 +13,9 @@ $--colorText: #252525;
         }
         .search {
             margin-left: 12px;
+            @include var.breakpoint(sm) {
+                display: none;
+            }
             > span {
                 position: relative;
                 input {
@@ -25,10 +25,10 @@ $--colorText: #252525;
                     font-size: 18px;
                     border: 2px solid transparent;
                     &:hover {
-                        border-color: $--colorGlobal;
+                        border-color: var.$colorGlobal;
                     }
                     &:focus {
-                        border-color: $--colorGlobal;
+                        border-color: var.$colorGlobal;
                     }
                 }
                 > span {
@@ -45,7 +45,7 @@ $--colorText: #252525;
                     border: none;
                     font-size: 18px;
                     &:hover {
-                        color: $--colorGlobal !important;
+                        color: var.$colorGlobal !important;
                     }
                 }
             }
@@ -56,6 +56,9 @@ $--colorText: #252525;
         align-items: center;
         margin: 0 -10px 30px -10px;
         font-size: 16px;
+        @include var.breakpoint(md) {
+            flex-direction: column;
+        }
         .imageCourse {
             width: 25%;
             padding: 0 10px;
@@ -104,7 +107,7 @@ $--colorText: #252525;
                 display: flex;
                 align-items: center;
                 font-size: 18px;
-                color: $--colorSecondary1;
+                color: var.$colorSecondary1;
                 margin: 5px 0;
             }
             .infoMaker {
@@ -125,31 +128,17 @@ $--colorText: #252525;
             padding: 0 10px;
             display: flex;
             justify-content: flex-end;
+            @include var.breakpoint(md) {
+                justify-content: flex-start;
+            }
         }
-    }
-}
-@media all and ( max-width: 768px) {
-    .courseUSer {
-        .itemMyCourse {
-            flex-direction: column;
-            .imageCourse,
-            .courseContent,
-            .btnCancel {
+        .imageCourse,
+        .courseContent,
+        .btnCancel {
+            @include var.breakpoint(md) {
                 width: 100%;
                 max-width: 600px;
                 margin-bottom: 12px;
-            }
-            .btnCancel {
-            justify-content: flex-start;
-            }
-        }
-    }
-}
-@media all and ( max-width: 640px) {
-    .courseUSer {
-        .courseUSerTitle {
-            .search {
-                display: none;
             }
         }
     }

@@ -1,6 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
+@use '/src/style/mixin.scss' as var;
 
 
 
@@ -16,9 +14,15 @@ $--colorText: #252525;
             align-items: center;
             padding: 30px 0;
             margin: 0 -15px;
+            @include var.breakpoint(md) {
+                flex-direction: column;
+            }
             .timeEvent {
                 width: 50%;
                 padding: 0 15px;
+                @include var.breakpoint(md) {
+                    width: 100%;
+                }
                 .countDownEvent {
                     display: flex;
                     p {
@@ -26,12 +30,30 @@ $--colorText: #252525;
                         flex-direction: column;
                         text-align: center;
                         padding-right: 45px;
+                        @include var.breakpoint(lg) {
+                            padding-right: 30px;
+                        }
+                        @include var.breakpoint(sm) {
+                            padding-right: 10px;
+                        }
                         span:nth-child(1) {
                             font-size: 60px;
                             font-weight: bold;
+                            @include var.breakpoint(lg) {
+                                padding-right: 50px;
+                            }
+                            @include var.breakpoint(sm) {
+                                padding-right: 40px;
+                            }
                         }
                         span:nth-child(2) {
                             font-size: 20px;
+                            @include var.breakpoint(lg) {
+                                padding-right: 50px;
+                            }
+                            @include var.breakpoint(sm) {
+                                padding-right: 40px;
+                            }
                         }
                         &:nth-child(1) span:nth-child(1) {
                             color: #ffbe0b;
@@ -52,15 +74,32 @@ $--colorText: #252525;
                     width: 130%;
                     padding: 10px 0;
                     text-transform: uppercase;
+                    @include var.breakpoint(lg) {
+                        padding-right: 30px;
+                        width: 100%;
+                    }
+                    @include var.breakpoint(sm) {
+                        padding-right: 26px;
+                        width: 100%;
+                    }
                 }
                 h5 {
                     font-size: 18px;
                     text-transform: uppercase;
+                    @include var.breakpoint(lg) {
+                        padding-right: 16px;
+                    }
+                    @include var.breakpoint(sm) {
+                        font-size: 14px;
+                    }
                 }
             }
             .rightSlider {
                 width: 50%;
                 padding: 0 15px;
+                @include var.breakpoint(md) {
+                    width: 80%;
+                }
             }
         }
     }
@@ -70,9 +109,15 @@ $--colorText: #252525;
             display: flex;
             align-items: center;
             margin: 0 -15px;
+            @include var.breakpoint(md) {
+                flex-direction: column;
+            }
             .imgDetail {
                 width: 50%;
                 padding: 0 15px;
+                @include var.breakpoint(md) {
+                    width: 70%;
+                }
                 img {
                     animation: animeSlider 3s linear infinite;
                 }
@@ -80,23 +125,36 @@ $--colorText: #252525;
             .detalContent {
                 width: 50%;
                 padding: 0 15px;
+                @include var.breakpoint(md) {
+                    margin-top: 30px;
+                    width: 100%;
+                }
                 h3 {
                     font-size: 28px;
                     padding-bottom: 10px;
                     color: #9f1f56;
                     text-transform: uppercase;
+                    @include var.breakpoint(md) {
+                        font-size: 24px;
+                    }
                 }
                 h5 {
                     font-size: 16px;
+                    @include var.breakpoint(md) {
+                        font-size: 14px;
+                    }
                 }
                 p {
                     color: #8c8c8c;
                     padding: 16px 0;
+                    @include var.breakpoint(md) {
+                        font-size: 14px;
+                    }
                 }
                 .btnDetail {
                     button:nth-child(1) {
                         color: #fff;
-                        background-color: $--colorGlobal;
+                        background-color: var.$colorGlobal;
                         margin-right: 10px;
                         height: 37px;
                     }
@@ -112,7 +170,7 @@ $--colorText: #252525;
         h2 {
             font-size: 30px;
             padding-bottom: 20px;
-            color: $--colorSecondary1;
+            color: var.$colorSecondary1;
             text-align: center;
             text-transform: uppercase;
         }
@@ -120,6 +178,15 @@ $--colorText: #252525;
             display: grid;
             grid-template-columns: repeat(4,1fr);
             gap: 30px;
+            @include var.breakpoint(lg) {
+                grid-template-columns: repeat(3,1fr);
+            }
+            @include var.breakpoint(md) {
+                grid-template-columns: repeat(2,1fr);
+            }
+            @include var.breakpoint(sm) {
+                grid-template-columns: repeat(1,1fr);
+            }
             .itemSpeecher {
                 color: #fff;
                 font-size: 18px;
@@ -133,15 +200,24 @@ $--colorText: #252525;
         padding: 50px 0;
         h2 {
             font-size: 30px;
-            color: $--colorSecondary1;
+            color: var.$colorSecondary1;
             text-align: center;
             padding: 20px 0;
             text-transform: uppercase;
+            @include var.breakpoint(sm) {
+                font-size: 26px;
+            }
         }
         .listDonors {
             display: grid;
             grid-template-columns: repeat(4,1fr);
             gap: 50px;
+            @include var.breakpoint(lg) {
+                grid-template-columns: repeat(2,1fr);
+            }
+            @include var.breakpoint(sm) {
+                grid-template-columns: repeat(1,1fr);
+            }
             .itemDonor {
                 img {
                     height: 220px;
@@ -158,7 +234,6 @@ $--colorText: #252525;
         }
     }
 }
-
 @keyframes animeSlider {
     0% {
         transform: translateY(-15px);
@@ -168,130 +243,5 @@ $--colorText: #252525;
     }
     100% {
         transform: translateY(-15px);
-    }
-}
-
-@media all and ( max-width: 1023px) {
-    .eventPage {
-        .sliderEvent {
-            .sliderContainer {
-                .timeEvent {
-                    .countDownEvent {
-                        p {
-                            padding-right: 30px;
-                            span:nth-child(1) {
-                                font-size: 50px;
-                            }
-                            span:nth-child(2) {
-                                font-size: 18px;
-                            }
-                        }
-                    }
-                    h3 {
-                        font-size: 30px;
-                    }
-                    h5 {
-                        font-size: 16px;
-                    }
-                }
-            }
-        }
-        .speecher {
-            .listSpeecher {
-                grid-template-columns: repeat(3,1fr);
-            }
-        }
-        .donors {
-            .listDonors {
-                grid-template-columns: repeat(2,1fr);
-            }
-        }
-    }
-}
-@media all and ( max-width: 768px) {
-    .eventPage {
-        .sliderEvent {
-            .sliderContainer {
-                flex-direction: column;
-                .timeEvent {
-                    width: 100%;
-                }
-                .rightSlider {
-                    width: 80%;
-                }
-            }
-        }
-        .eventDetail {
-            .detailContainer {
-                flex-direction: column;
-                .imgDetail {
-                    width: 70%;
-                }
-                .detalContent {
-                    margin-top: 30px;
-                    width: 100%;
-                    h3 {
-                        font-size: 24px;
-                    }
-                    h5 {
-                        font-size: 14px;
-                    }
-                    p {
-                        font-size: 14px;
-                    }
-                    .btnDetail {
-                        button:nth-child(1) {
-                            margin-bottom: 10px;
-                        }
-                    }
-                }
-            }
-        }
-        .speecher {
-            .listSpeecher {
-                grid-template-columns: repeat(2,1fr);
-            }
-        }
-    }
-}
-@media all and ( max-width: 640px) {
-    .eventPage {
-        .sliderEvent {
-            .sliderContainer {
-                .timeEvent {
-                    .countDownEvent {
-                        p {
-                            padding-right: 10px;
-                            span:nth-child(1) {
-                                font-size: 40px;
-                            }
-                            span:nth-child(2) {
-                                font-size: 14px;
-                            }
-                        }
-                    }
-                    h3 {
-                        font-size: 26px;
-                        width: 100%;
-                    }
-                    h5 {
-                        font-size: 14px;
-                    }
-                }
-            }
-        }
-        .speecher {
-            .listSpeecher {
-                grid-template-columns: repeat(1,1fr);
-            }
-        }
-        .donors {
-            h2 {
-                font-size: 26px;
-            }
-            .listDonors {
-                grid-template-columns: repeat(1,1fr);
-            }
-        }
     }
 }

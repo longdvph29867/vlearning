@@ -1,10 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorSecondary2: #ed85ab;
-$--colorText: #252525;
-$--colorText2: #8c8c8c;
-
-
+@use '/src/style/mixin.scss' as var;
 
 .reviewStudent {
     padding: 30px 0;
@@ -13,6 +7,9 @@ $--colorText2: #8c8c8c;
         grid-template-columns: repeat(2,1fr);
         gap: 20px;
         align-items: center;
+        @include var.breakpoint(md) {
+            grid-template-columns: repeat(1,1fr);
+        }
         .reviewImg {
             display: flex;
             align-items: center;
@@ -38,29 +35,32 @@ $--colorText2: #8c8c8c;
                 height: 0;
                 border-left: 20px solid transparent;
                 border-right: 20px solid transparent;
-                border-bottom: 50px solid $--colorSecondary1;
+                border-bottom: 50px solid var.$colorSecondary1;
             }
             .smallboxLeftTop {
-                @include smallBox($--colorGlobal);
+                @include smallBox(var.$colorGlobal);
                 top: 10%;
                 left: 10%;
                 height: 70px;
                 width: 16%;
             }
             .smallboxRightTop {
-                @include smallBox($--colorSecondary1);
+                @include smallBox(var.$colorSecondary1);
                 top: 5%;
                 right: 5%;
                 transform: rotate(45deg);
             }
             .smallboxRightBottom {
-                @include smallBox($--colorSecondary1);
+                @include smallBox(var.$colorSecondary1);
                 bottom: 5%;
                 left: 70%;
                 width: 15%;
             }
         }
         .quote {
+            @include var.breakpoint(lg) {
+                padding: 0  20px;
+            }
             blockquote p {
                 position: relative;
                 line-height: 30px;
@@ -75,7 +75,7 @@ $--colorText2: #8c8c8c;
                     content: open-quote;
                     font-size: 50px;
                     font-family: fantasy;
-                    color: $--colorSecondary2;
+                    color: #ed85ab;
                 }
                 &::after {
                     position: absolute;
@@ -84,24 +84,15 @@ $--colorText2: #8c8c8c;
                     content: close-quote;
                     font-size: 50px;
                     font-family: fantasy;
-                    color: $--colorSecondary2;
+                    color: #ed85ab;
                 }
             }
             .reviewName {
                 color: #ed85ab;
             }
             span {
-                color: $--colorText2;
+                color: #8c8c8c;
             }
-        }
-    }
-}
-
-@media all and ( max-width: 768px) {
-    .reviewStudent > div {
-        grid-template-columns: repeat(1,1fr);
-        .quote {
-            padding:  0 20px;
         }
     }
 }

@@ -1,9 +1,4 @@
-$--colorGlobal: #41b294;
-$--colorSecondary1: #f6ba35;
-$--colorText: #252525;
-
-
-
+@use '/src/style/mixin.scss' as var;
 
 .searchPage {
     .searchContainer {
@@ -12,20 +7,16 @@ $--colorText: #252525;
         grid-template-columns: repeat(5,1fr);
         gap: 30px;
         .item {
+            &:nth-child(1) {
+                @include var.breakpoint(md) {
+                    display: none;
+                }
+            }
             &:nth-child(2) {
                 grid-column: 2/6;
-            }
-        }
-    }
-}
-@media all and ( max-width: 768px) {
-    .searchPage {
-        .searchContainer {
-            .item:nth-child(1) {
-                display: none;
-            }
-            .item:nth-child(2) {
-                grid-column: 1/6;
+                @include var.breakpoint(md) {
+                    grid-column: 1/6;
+                }
             }
         }
     }

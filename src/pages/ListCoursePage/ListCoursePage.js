@@ -5,15 +5,21 @@ import { FaLaptop, FaCamera, FaBriefcase, FaBook, FaPlay, FaDiceD20, FaBookmark 
 import { Pagination } from 'antd';
 import { courseService } from '../../service/courseService';
 import ItemCourseV2 from '../../components/ItemCourseV2/ItemCourseV2';
+import { SET_LOADING_OFF, SET_LOADING_ON } from '../../redux/constant/spinnerConstant';
+import { useDispatch } from 'react-redux';
 export default function ListCoursePage() {
+    const dispatch = useDispatch();
     const [listCourse, setlistCourse] = useState([]);
     const [page, setPage] = useState(1);
     useEffect(() => {
+        dispatch({type: SET_LOADING_ON})
         courseService.getListCoursePageSplit(page)
         .then((res) => {
+            dispatch({type: SET_LOADING_OFF})
             setlistCourse(res.data.items)
         })
         .catch((err) => {
+            dispatch({type: SET_LOADING_OFF})
             console.log(err);
         });
     }, [page])
