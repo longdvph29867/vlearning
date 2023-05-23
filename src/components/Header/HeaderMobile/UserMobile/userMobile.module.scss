@@ -16,7 +16,7 @@
         right: 0;
         top: 150%;
         transition: all .3s;
-        display: none;
+        // display: none;
         transform-origin: 95% 0%;
         animation: menuMobile .3s;
     }
@@ -26,30 +26,17 @@
         color: var.$colorSecondary1;
         margin-left: 10px;
         cursor: pointer;
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         svg {
             cursor: pointer;
         }
-        > input {
-            display: none;
-        }
-        // > input:checked ~ .menuMobile {
-        //     display: block;
-        // }
         .menuMobile {
             font-size: initial;
             color: initial;
-        }
-        &:hover .menuMobile{
-            display: block;
-        }
-        &::after {
-            position: absolute;
-            content: "";
-            background-color: transparent;
-            width: 40px;
-            height: 20px;
-            right: 0;
-            top: 100%;
         }
     }
     

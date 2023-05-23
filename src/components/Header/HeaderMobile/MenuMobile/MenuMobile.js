@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const { Search } = Input;
 
 
-export default function MenuMobile({isLogin}) {
+export default function MenuMobile({isLogin, setCloseMenu}) {
   const navigate = useNavigate()
   const [courseMenu, setCourseMenu] = useState([]);
   useEffect(() => {
@@ -22,6 +22,7 @@ export default function MenuMobile({isLogin}) {
   }, [])
   const onSearch = (value) => {
     navigate(`/search/${value}`)
+    setCloseMenu()
   };
   return (
     <nav className={styles.menu}>
@@ -35,39 +36,37 @@ export default function MenuMobile({isLogin}) {
           }}
           />
         </li>
-        <li className={styles.menuChildList}>
+        <li className={styles.menuChildList} onClick={setCloseMenu}>
           <span>DANH MỤC</span>
           <ul className={styles.menuChild}>
             {courseMenu.map((item, index) => {
               return ( <NavLink key={index} to={`/category/${item.maDanhMuc}`}>
-                <li>{item.tenDanhMuc}</li>
+                <li onClick={setCloseMenu} >{item.tenDanhMuc}</li>
               </NavLink>
               )
             })}
             </ul>
         </li>
         <li>
-          <NavLink onClick={() => {console.log(123)}} to={'/listcourse'}>
-            <label htmlFor="showMenu">
-              <span>KHÓA HỌC</span>
-            </label>
+          <NavLink  onClick={setCloseMenu} to={'/listcourse'}>
+            <span>KHÓA HỌC</span>
           </NavLink>
         </li>
         <li>
-          <NavLink  to={'/blog'}>
+          <NavLink onClick={setCloseMenu} to={'/blog'}>
             <span>BLOG</span>
           </NavLink>
         </li>
         <li className={styles.menuChildEven}>
           <span>SỰ KIỆN</span>
           <ul className={styles.menuChild}>
-            <li><NavLink to={'/event/sale'}>SỰ KIỆN SALE CUỐI NĂM</NavLink></li>
-            <li><NavLink to={'/event/christmas'}>SỰ KIỆN GIÁNG SINH</NavLink></li>
-            <li><NavLink to={'event/noel'}>SỰ KIỆN NOEL</NavLink></li>
+            <li><NavLink  onClick={setCloseMenu} to={'/event/sale'}>SỰ KIỆN SALE CUỐI NĂM</NavLink></li>
+            <li><NavLink  onClick={setCloseMenu} to={'/event/christmas'}>SỰ KIỆN GIÁNG SINH</NavLink></li>
+            <li><NavLink  onClick={setCloseMenu} to={'event/noel'}>SỰ KIỆN NOEL</NavLink></li>
           </ul>
         </li>
         <li>
-          <NavLink to={'/about'}>
+          <NavLink  onClick={setCloseMenu} to={'/about'}>
             <span>THÔNG TIN</span>
           </NavLink>
         </li>
