@@ -36,7 +36,7 @@ export default function MenuMobile({isLogin, setCloseMenu}) {
           }}
           />
         </li>
-        <li className={styles.menuChildList} onClick={setCloseMenu}>
+        <li className={styles.menuChildList}>
           <span>DANH MỤC</span>
           <ul className={styles.menuChild}>
             {courseMenu.map((item, index) => {
